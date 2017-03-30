@@ -1,0 +1,23 @@
+language: csharp
+dist: trusty
+solution: MakiseSharpServer.sln
+mono: none
+dotnet: 1.0.1
+notifications:
+  email: false
+  webhooks:
+  - http://13.95.22.78:2137/MakiseSharp/TravisWebhook
+  - http://46.22.171.147:2137/MakiseSharp/TravisWebhook
+env:
+  global:
+addons:
+  apt:
+    packages:
+    - sshpass
+script: ./scripts/build.sh
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: scripts/deploy.sh
+  on:
+    branch: master

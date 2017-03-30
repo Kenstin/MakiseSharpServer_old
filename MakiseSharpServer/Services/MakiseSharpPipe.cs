@@ -25,7 +25,7 @@ namespace MakiseSharpServer.Services
             {
                     pipe.WaitForConnection();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 pipe.Disconnect();
                 pipe.WaitForConnection();
@@ -36,7 +36,7 @@ namespace MakiseSharpServer.Services
                 pipe.Write(heh,0,heh.Length);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return;
             }
@@ -48,7 +48,7 @@ namespace MakiseSharpServer.Services
             {
                 await pipe.WaitForConnectionAsync();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 pipe.Disconnect();
                 await pipe.WaitForConnectionAsync();
@@ -59,7 +59,7 @@ namespace MakiseSharpServer.Services
                 await pipe.WriteAsync(heh, 0, heh.Length);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return;
             }
