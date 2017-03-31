@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.IO.Pipes;
-using System.Text;
+using MakiseSharpServer.Utility;
 
 
 namespace MakiseSharpServer.Services
@@ -11,7 +11,8 @@ namespace MakiseSharpServer.Services
         private readonly NamedPipeServerStream pipe;
         public MakiseSharpPipe()
         {
-            pipe = new NamedPipeServerStream("MakiseSharp",PipeDirection.InOut,2, PipeTransmissionMode.Message, PipeOptions.Asynchronous);
+            pipe = new NamedPipeServerStream("MakiseSharp", PipeDirection.InOut, 2, PipeTransmissionMode.Byte,
+                PipeOptions.Asynchronous);
         }
 
         public void Dispose()
@@ -23,7 +24,7 @@ namespace MakiseSharpServer.Services
         {
             try
             {
-                    pipe.WaitForConnection();
+                pipe.WaitForConnection();
             }
             catch (Exception)
             {
@@ -32,8 +33,7 @@ namespace MakiseSharpServer.Services
             }
             try
             {
-                var heh = Encoding.ASCII.GetBytes(data);
-                pipe.Write(heh,0,heh.Length);
+                StringStream.WriteMessage(data, pipe).GetAwaiter().GetResult(); //TODO: prob change to ascii
 
             }
             catch (Exception)
@@ -55,9 +55,7 @@ namespace MakiseSharpServer.Services
             }
             try
             {
-                var heh = Encoding.ASCII.GetBytes(data);
-                await pipe.WriteAsync(heh, 0, heh.Length);
-
+                await StringStream.WriteMessage(data, pipe);
             }
             catch (Exception)
             {
