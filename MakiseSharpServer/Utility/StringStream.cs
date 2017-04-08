@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +8,11 @@ namespace MakiseSharpServer.Utility
     public class StringStream
     {
         private const int LengthBytes = 4;
-        private static readonly Encoding streamEncoding;
+        private static readonly Encoding StreamEncoding;
 
         static StringStream()
         {
-            streamEncoding = new UnicodeEncoding();
+            StreamEncoding = new UnicodeEncoding();
         }
 
         public static async Task<string> ReadMessage(Stream ioStream)
@@ -33,7 +32,7 @@ namespace MakiseSharpServer.Utility
             }
             while (read < len);
 
-            return streamEncoding.GetString(message);
+            return StreamEncoding.GetString(message);
         }
 
         public static async Task<int> WriteMessage(string message, Stream ioStream)
@@ -43,7 +42,7 @@ namespace MakiseSharpServer.Utility
                 return 0;
             }
 
-            var buffer = streamEncoding.GetBytes(message);
+            var buffer = StreamEncoding.GetBytes(message);
             int len = buffer.Length; //overflow
 
             var length = BitConverter.GetBytes(len);

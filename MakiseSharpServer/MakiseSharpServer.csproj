@@ -13,10 +13,20 @@
     <TreatSpecificWarningsAsErrors />
   </PropertyGroup>
   
+   <PropertyGroup>
+  	<CodeAnalysisRuleSet>RuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json">
+    </AdditionalFiles>
+  </ItemGroup>
+  
   <PropertyGroup>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta001" PrivateAssets="All" />
     <PackageReference Include="BouncyCastle.NetCore" Version="1.8.1.2" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
