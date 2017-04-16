@@ -28,6 +28,7 @@ namespace MakiseSharpServer
             services.AddMvc();
             services.AddSingleton<IMakiseSharpPipe>(new MakiseSharpPipe());
             services.AddWebEncoders();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
