@@ -2,7 +2,7 @@
 
 namespace MakiseSharpServer.Tests.DataSources
 {
-    internal class SHA1ServiceDataSource
+    internal class UtilitySha1DataSource
     {
         private static readonly List<object[]> Data
             = new List<object[]>
