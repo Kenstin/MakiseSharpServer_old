@@ -1,4 +1,4 @@
-﻿namespace MakiseSharpServer.Models
+﻿namespace MakiseSharpServer.Models.Travis
 {
     public class TravisWebhookBodyModel
     {
