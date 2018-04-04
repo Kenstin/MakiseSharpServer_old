@@ -18,8 +18,7 @@ namespace MakiseSharpServer.Tests
         {
             var memoryCacheOptions = new MemoryCacheOptions
             {
-                ExpirationScanFrequency = TimeSpan.MaxValue,
-                CompactOnMemoryPressure = false
+                ExpirationScanFrequency = TimeSpan.MaxValue
             };
             cache = new MemoryCache(memoryCacheOptions);
             mockHttp = new MockHttpMessageHandler();
