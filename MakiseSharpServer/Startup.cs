@@ -37,23 +37,11 @@ namespace MakiseSharpServer
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-           /* if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-
-            app.UseStaticFiles();*/
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=MakiseSharp}/{action=Index}/{id?}");
+                    template: "{controller=MakiseSharp}/{action=Index}/{id?}"); //TODO: delete id?
             });
         }
     }
