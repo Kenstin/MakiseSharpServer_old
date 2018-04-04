@@ -38,14 +38,14 @@ namespace MakiseSharpServer.Models.Travis
         public async Task<bool> VerifySignature() //Try from cache and fallback to downloading new pkey
         {
             var pkeyBytes = await cache.GetOrCreateAsync(type, async cacheEntry =>
-                (await TravisPublicKeyService.Create(type, client)).ToBytes());
+                (await TravisPublicKeyService.Create(type, client)).KeyAsBytes());
 
             if (Sha1.VerifySignature(digestedMessage, signature, pkeyBytes))
             {
                 return true;
             }
 
-            pkeyBytes = (await TravisPublicKeyService.Create(type, client)).ToBytes();
+            pkeyBytes = (await TravisPublicKeyService.Create(type, client)).KeyAsBytes();
 
             if (!Sha1.VerifySignature(digestedMessage, signature, pkeyBytes))
             {

@@ -32,7 +32,7 @@ namespace MakiseSharpServer.Services
             return obj;
         }
 
-        public byte[] ToBytes() => Convert.FromBase64String(Utility.Keys.Dearmor(key));
+        public byte[] KeyAsBytes() => Convert.FromBase64String(Utility.Keys.Dearmor(key));
 
         public async Task FetchPublicKey()
         {
