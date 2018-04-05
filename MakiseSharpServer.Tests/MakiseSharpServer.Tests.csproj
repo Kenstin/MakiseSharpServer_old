@@ -14,9 +14,5 @@
   <ItemGroup>
     <ProjectReference Include="..\MakiseSharpServer\MakiseSharpServer.csproj" />
   </ItemGroup>
-
-  <PropertyGroup>
-    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
-  </PropertyGroup>
   
 </Project>

@@ -22,9 +22,6 @@
     </AdditionalFiles>
   </ItemGroup>
   
-  <PropertyGroup>
-    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
-  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta001" PrivateAssets="All" />
     <PackageReference Include="BouncyCastle.NetCore" Version="1.8.1.3" />
