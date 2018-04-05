@@ -11,7 +11,7 @@ namespace MakiseSharpServer.Services
 
         public MakiseSharpPipe()
         {
-            pipe = new NamedPipeServerStream("MakiseSharp", PipeDirection.InOut, 2, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
+            pipe = new NamedPipeServerStream("makisesharp", PipeDirection.InOut, 2, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
         }
 
         public void Dispose()
